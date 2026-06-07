@@ -48,6 +48,8 @@ The following workload is used as the baseline for both provider estimates. It r
 | Hours per Month | 730 |
 | **Monthly Compute Cost** | **$33.29** |
 
+![AWS EC2 Configuration](screenshots/03_aws_ec2_config.png)
+
 ### 3.2 Storage – EBS gp3 128 GB
 
 | Metric | Value |
@@ -58,11 +60,15 @@ The following workload is used as the baseline for both provider estimates. It r
 | Included IOPS | 3,000 (free baseline) |
 | **Monthly Storage Cost** | **$14.08** |
 
+![AWS EBS Configuration](screenshots/04_aws_ebs_config.png)
+
 ### 3.3 Data Transfer Out – 100 GB/month
 
 | Tier | Rate | Volume | Cost |
 |---|---|---|---|
 | First 100 GB/month | $0.09/GB | 100 GB | **$6.18** |
+
+![AWS Data Transfer Configuration](screenshots/05_aws_data_transfer.png)
 
 > ℹ️ AWS lists the first 100 GB/month as free under the Free Tier, but the Pricing Calculator applies standard rates for accurate business estimates regardless of Free Tier status.
 
@@ -88,6 +94,8 @@ AWS Compute Savings Plans offer up to **36% discount** vs on-demand for a 1-year
 | Data Transfer Out 100 GB | $6.18 |
 | **Total (1-Year Savings Plan)** | **$41.57** |
 
+![AWS Compute Savings Plan Configuration](screenshots/06_aws_discounts.png)
+
 ---
 
 ## 4. Azure Cost Estimate (UK South, London)
@@ -104,6 +112,8 @@ AWS Compute Savings Plans offer up to **36% discount** vs on-demand for a 1-year
 | Hourly Rate (PAYG, Linux, UK South) | $0.0470/hr |
 | Hours per Month | 730 |
 | **Monthly Compute Cost** | **$34.29** |
+
+![Azure VM Configuration](screenshots/07_azure_vm_config.png)
 
 ### 4.2 Compute – Windows with Azure Hybrid Benefit
 
@@ -124,6 +134,8 @@ For comparison, if running Windows Server with an existing licence on the equiva
 | Estimated Monthly Rate (UK South) | ~$10.69/month |
 | **Monthly Storage Cost** | **$10.69** |
 
+![Azure Storage Configuration](screenshots/08_azure_storage_config.png)
+
 ### 4.4 Data Transfer Out – 100 GB/month
 
 | Tier | Rate | Volume | Cost |
@@ -131,6 +143,8 @@ For comparison, if running Windows Server with an existing licence on the equiva
 | First 5 GB/month | Free | 5 GB | $0.00 |
 | Next 95 GB (up to 10 TB) | $0.087/GB | 95 GB | $8.27 |
 | **Monthly Egress Cost** | | | **$8.27** |
+
+![Azure Bandwidth Configuration](screenshots/09_azure_bandwidth_config.png)
 
 ### 4.5 Azure Monthly Cost Summary (PAYG, Linux)
 
