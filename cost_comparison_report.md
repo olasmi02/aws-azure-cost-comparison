@@ -248,4 +248,48 @@ The specifications in this comparison assume 2 vCPU / 4 GB RAM running at modera
 
 ---
 
+## 9. Regional Cost Variation Analysis
+
+To understand global price differences, we compare the same basic workload (compute VM, 128 GB SSD storage, and 100 GB/month internet egress data transfer) across three major cloud regions: **US East**, **North Europe**, and **Southeast Asia**.
+
+All prices are pay-as-you-go / on-demand, Linux-based, and calculated monthly (730 hours).
+
+### 9.1 AWS Regional Cost Breakdown
+
+| Component | US East (N. Virginia) | North Europe (Ireland) | Southeast Asia (Singapore) |
+|---|---|---|---|
+| **Compute** (EC2 `t3.medium`) | $30.37 ($0.0416/hr) | $33.29 ($0.0456/hr) | $38.54 ($0.0528/hr) |
+| **Storage** (EBS `gp3` 128 GB) | $10.24 ($0.08/GB) | $14.08 ($0.11/GB) | $10.24 ($0.08/GB) |
+| **Egress** (100 GB transfer) | $9.00 ($0.09/GB) | $6.18 | $12.00 ($0.12/GB) |
+| **Monthly Total** | **$49.61** | **$53.55** | **$60.78** |
+| **Annualised Total** | **$595.32** | **$642.60** | **$729.36** |
+| **Price Premium vs US East** | Baseline | +7.9% | +22.5% |
+
+### 9.2 Azure Regional Cost Breakdown
+
+| Component | East US | North Europe (Ireland) | Southeast Asia (Singapore) |
+|---|---|---|---|
+| **Compute** (A1 Basic) | $16.79 ($0.0230/hr) | $18.25 ($0.0250/hr) | $21.90 ($0.0300/hr) |
+| **Storage** (E10 SSD 128 GiB) | $9.60 | $9.60 | $10.24 |
+| **Egress** (100 GB transfer) | $8.27 | $8.27 | $10.45 |
+| **Monthly Total** | **$34.66** | **$36.12** | **$42.59** |
+| **Annualised Total** | **$415.92** | **$433.44** | **$511.08** |
+| **Price Premium vs US East** | Baseline | +4.2% | +22.9% |
+
+### 9.3 Regional Comparison Summary
+
+| Region | AWS Total | Azure Total | Absolute Diff (Mo / Yr) | Percentage Difference |
+|---|---|---|---|---|
+| **US East** | $49.61 | $34.66 | Azure is $14.95 / $179.40 cheaper | Azure is 30.1% cheaper |
+| **North Europe** | $53.55 | $36.12 | Azure is $17.43 / $209.16 cheaper | Azure is 32.5% cheaper |
+| **Southeast Asia** | $60.78 | $42.59 | Azure is $18.19 / $218.28 cheaper | Azure is 29.9% cheaper |
+
+### 9.4 Key Regional Insights
+1. **US East is the cheapest baseline:** For both AWS and Azure, US East (N. Virginia / East US) offers the lowest prices due to massive scale and mature infrastructure.
+2. **Southeast Asia (Singapore) carries a premium:** Compute rates in Singapore are 22-26% higher than US East. Egress is also higher ($0.12/GB for AWS vs $0.09/GB in US East).
+3. **Azure maintains a compute cost advantage:** Due to the lighter resource specifications of the A1 Basic instance (1 vCPU, 1.75 GB RAM vs. EC2 t3.medium's 2 vCPU, 4 GB RAM), Azure has a significant price advantage across all three regions for this mapping. However, when selecting instance types, teams should verify if the A1 Basic provides sufficient performance for their application.
+
+---
+
 *Prices sourced from AWS and Azure official pricing pages and calculators. All costs are in USD. Verify current rates at [calculator.aws](https://calculator.aws) and [azure.microsoft.com/pricing/calculator](https://azure.microsoft.com/pricing/calculator).*
+
